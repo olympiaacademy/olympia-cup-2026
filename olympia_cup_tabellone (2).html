@@ -118,7 +118,10 @@
 <div class="header">
   <h1>🏀 OLYMPIA ACADEMY CUP 2026</h1>
   <p>3° Memorial "Alessandro Giudice" · Oasi Olympia Playground</p>
-  <p id="sync-status" style="font-size:10px;margin-top:3px;color:var(--orange)">⟳ Connessione...</p>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-top:6px;flex-wrap:wrap">
+  <p id="sync-status" style="font-size:13px;font-weight:700;color:var(--orange)">⟳ Connessione...</p>
+  <button onclick="saveToCloud()" style="background:#EA7B23;color:#21253A;border:none;border-radius:20px;padding:6px 18px;font-size:13px;font-weight:800;cursor:pointer">💾 SALVA</button>
+</div>
 </div>
 
 <div class="tabs">
@@ -177,63 +180,68 @@ const UNDER_TEAMS = ["Fiato Corto","Armani Gin","Acchiappa Pilu","Black & White"
 
 const SCHEDULE = [
   // [giorno, slot, orario, cat, teamA, teamB]
-  // MARTEDÌ
-  ["MAR","1","18:30","U","Acchiappa Pilu","Lions"],
-  ["MAR","1","18:30","M","Dunk Zone","Kings"],
-  ["MAR","2","18:50","M","Shadows Fangs","Warriors"],
-  ["MAR","2","18:50","M","Basket Case","Golden Eagles"],
-  ["MAR","3","19:10","M","Power Trio","Kings"],
-  ["MAR","3","19:10","M","Dunk Zone","Victoria Basket"],
-  ["MAR","4","19:30","M","Shadows Fangs","Golden Eagles"],
-  ["MAR","4","19:30","U","Black & White","Futtitinni Warriors"],
-  ["MAR","5","19:50","M","Warriors","Victoria Basket"],
-  ["MAR","5","19:50","U","Fiato Corto","Acchiappa Pilu"],
-  ["MAR","6","20:10","M","Kings","Golden Eagles"],
-  ["MAR","6","20:10","M","Dunk Zone","Basket Case"],
-  ["MAR","7","20:30","U","Armani Gin","Acchiappa Pilu"],
-  ["MAR","7","20:30","U","Fiato Corto","Black & White"],
-  ["MAR","8","20:50","M","Mandarini","Golden Eagles"],
-  ["MAR","8","20:50","M","Shadows Fangs","Victoria Basket"],
-  ["MAR","9","21:10","U","Fiato Corto","Armani Gin"],
-  ["MAR","9","21:10","M","Power Trio","Warriors"],
-  ["MAR","10","21:30","M","Dunk Zone","Mandarini"],
-  ["MAR","10","21:30","M","Basket Case","Victoria Basket"],
-  ["MAR","11","21:50","M","Power Trio","Golden Eagles"],
-  ["MAR","11","21:50","U","Fiato Corto","Futtitinni Warriors"],
-  ["MAR","12","22:10","M","Dunk Zone","Warriors"],
-  ["MAR","12","22:10","M","Basket Case","Kings"],
-  // MERCOLEDÌ
-  ["MER","1","18:30","M","Power Trio","Victoria Basket"],
-  ["MER","1","18:30","U","Fiato Corto","Lions"],
-  ["MER","2","18:50","M","Basket Case","Warriors"],
-  ["MER","2","18:50","M","Shadows Fangs","Kings"],
-  ["MER","3","19:10","M","Dunk Zone","Power Trio"],
-  ["MER","3","19:10","U","Black & White","Lions"],
-  ["MER","4","19:30","M","Mandarini","Warriors"],
-  ["MER","4","19:30","M","Basket Case","Shadows Fangs"],
-  ["MER","5","19:50","M","Dunk Zone","Golden Eagles"],
-  ["MER","5","19:50","M","Kings","Victoria Basket"],
-  ["MER","6","20:10","M","Shadows Fangs","Mandarini"],
-  ["MER","6","20:10","U","Acchiappa Pilu","Black & White"],
-  ["MER","7","20:30","M","Kings","Warriors"],
-  ["MER","7","20:30","M","Golden Eagles","Victoria Basket"],
-  ["MER","8","20:50","M","Dunk Zone","Shadows Fangs"],
-  ["MER","8","20:50","U","Armani Gin","Lions"],
-  ["MER","9","21:10","M","Golden Eagles","Warriors"],
-  ["MER","9","21:10","M","Mandarini","Victoria Basket"],
-  ["MER","10","21:30","U","Armani Gin","Futtitinni Warriors"],
-  ["MER","10","21:30","M","Basket Case","Power Trio"],
-  ["MER","11","21:50","M","Mandarini","Kings"],
-  ["MER","11","21:50",""],
-  ["MER","12","22:10","U","Acchiappa Pilu","Futtitinni Warriors"],
-  ["MER","12","22:10","U","Armani Gin","Black & White"],
-  // VENERDÌ
-  ["VEN","1","19:00","M","Basket Case","Mandarini"],
-  ["VEN","1","19:00","M","Shadows Fangs","Power Trio"],
-  ["VEN","2","19:20","U","Futtitinni Warriors","Lions"],
-  ["VEN","2","19:20",""],
-  ["VEN","3","19:40","M","Power Trio","Mandarini"],
-  ["VEN","3","19:40",""],
+
+  // ── MARTEDÌ 30 GIUGNO ──────────────────────────────
+  ["MAR","RZ","18:50","M","Power Trio","Mandarini"],
+  ["MAR","RZ","18:50","M","Red Zone","Dunk Zone"],
+  ["MAR","1","19:00","M","Mandarini","Golden Eagles"],
+  ["MAR","1","19:00","M","Basket Case","Warriors"],
+  ["MAR","2","19:20","U","Futtitinni Warriors","Lions"],
+  ["MAR","2","19:20","M","Basket Case","Dunk Zone"],
+  ["MAR","3","19:40","M","Shadows Fangs","Golden Eagles"],
+  ["MAR","3","19:40","M","Power Trio","Warriors"],
+  ["MAR","4","20:00","U","Armani Gin","Futtitinni Warriors"],
+  ["MAR","4","20:00","M","Basket Case","Golden Eagles"],
+  ["MAR","5","20:20","M","Golden Eagles","Warriors"],
+  ["MAR","5","20:20","M","Red Zone","Basket Case"],
+  ["MAR","6","20:40","U","Armani Gin","Black & White"],
+  ["MAR","6","20:40","U","Acchiappa Pilu","Futtitinni Warriors"],
+  ["MAR","7","21:00","M","Mandarini","Warriors"],
+  ["MAR","7","21:00","M","Red Zone","Warriors"],
+  ["MAR","8","21:20","U","Fiato Corto","Lions"],
+  ["MAR","8","21:20","M","Dunk Zone","Shadows Fangs"],
+  ["MAR","9","21:40","M","Basket Case","Mandarini"],
+  ["MAR","9","21:40","M","Shadows Fangs","Kings"],
+
+  // ── MERCOLEDÌ 1 LUGLIO ─────────────────────────────
+  ["MER","RZ","18:50","S","Red Zone","Power Trio"],
+  ["MER","RZ","18:50","M","Basket Case","Shadows Fangs"],
+  ["MER","1","19:00","M","Dunk Zone","Golden Eagles"],
+  ["MER","1","19:00","U","Fiato Corto","Black & White"],
+  ["MER","2","19:20","M","Mandarini","Kings"],
+  ["MER","2","19:20","M","Red Zone","Shadows Fangs"],
+  ["MER","3","19:40","M","Power Trio","Golden Eagles"],
+  ["MER","3","19:40","U","Acchiappa Pilu","Black & White"],
+  ["MER","4","20:00","S","Tune Squad","Avengers"],
+  ["MER","4","20:00","M","Basket Case","Kings"],
+  ["MER","5","20:20","S","Monstars","Palle in Testa"],
+  ["MER","5","20:20","M","Shadows Fangs","Warriors"],
+  ["MER","6","20:40","S","Palle in Testa","Avengers"],
+  ["MER","6","20:40","M","Basket Case","Power Trio"],
+  ["MER","7","21:00","S","Tune Squad","Monstars"],
+  ["MER","7","21:00","M","Dunk Zone","Kings"],
+  ["MER","8","21:20","S","Monstars","Avengers"],
+  ["MER","8","21:20","U","Fiato Corto","Futtitinni Warriors"],
+  ["MER","9","21:40","S","Tune Squad","Palle in Testa"],
+  ["MER","9","21:40","U","Armani Gin","Acchiappa Pilu"],
+  ["MER","10","22:00","S","FINALE Senior","1° vs 2°"],
+  ["MER","10","22:00","M","Dunk Zone","Mandarini"],
+  ["MER","11","22:20","M","Dunk Zone","Power Trio"],
+  ["MER","11","22:20","U","Armani Gin","Lions"],
+
+  // ── GIOVEDÌ 2 LUGLIO ───────────────────────────────
+  ["GIO","RZ","18:50","S","Red Zone","Kings"],
+  ["GIO","RZ","18:50","U","Fiato Corto","Acchiappa Pilu"],
+  ["GIO","1","19:20","M","Shadows Fangs","Power Trio"],
+  ["GIO","1","19:20","U","Acchiappa Pilu","Lions"],
+  ["GIO","2","19:40","M","Power Trio","Kings"],
+  ["GIO","2","19:40","U","Fiato Corto","Armani Gin"],
+  ["GIO","3","20:00","M","Kings","Warriors"],
+  ["GIO","3","20:00","M","Red Zone","Mandarini"],
+  ["GIO","4","20:20","U","Black & White","Futtitinni Warriors"],
+  ["GIO","4","20:20","M","Dunk Zone","Warriors"],
+  ["GIO","5","20:40","U","Black & White","Lions"],
+  ["GIO","5","20:40","M","Red Zone","Golden Eagles"],
 ];
 
 // ── CLOUD SYNC (JSONBin.io) ───────────────────────────────────────────
@@ -374,7 +382,7 @@ function renderMatches() {
       slots[k].matches.push(m);
     });
 
-    Object.values(slots).forEach(sl => {
+    Object.values(slots).sort((a,b)=>a.time.localeCompare(b.time)).forEach(sl => {
       sl.matches.forEach(m => {
         const [d, slot, time, cat, tA, tB] = m;
         const key = matchKey(d, slot, cat, tA, tB);
